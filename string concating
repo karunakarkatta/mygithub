@@ -1,0 +1,30 @@
+#include<stdio.h>
+void stcat(char *str1, char *str2);
+void main()
+{
+char *str1, *str2;
+printf("\n\n\t ENTER THE FIRST STRING…: ");
+gets(str1);
+printf("\n\n\t ENTER THE FIRST STRING…: ");
+gets(str2);
+stcat(str1,str2);
+printf("\n\t THE CONCATENATED STRING IS…: ");
+puts(str1);
+
+}
+void stcat (char *str1, char *str2)
+{
+int i = 0,len = 0;
+while(*(str1+len)!='\0')
+len++;
+while(*(str2+i)!='\0')
+{
+*(str1+len) = *(str2+i);
+i++;
+len++;
+}
+*(str1+len) = '\0';
+}
+                                                                                                                                        
+                 
+              
