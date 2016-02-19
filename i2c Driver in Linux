@@ -1,0 +1,23 @@
+I2C is a simple serial bus that is often used to communicate with devices such as EEPROMs and peripherals such as touchscreens,sensors
+there is also SMBus which can sometimes be considered a subset of I2C.
+The kernel breaks down I2C into ‘Buses’ and ‘Devices’
+I2C--->Buses+Devices
+Buses--->Algorithms + Adapters
+Devices--->Drivers+Clients
+
+Algorithms:
+An Algorithm performs the actual reading and writing of I2C messages to the hardware..
+This may involve bit banging GPIO lines or writing to an I2C controller chip..
+
+An Algorithm is represented by the very straight-foward ‘struct i2c_algorithm‘ structure and allows you to define function pointers to functions that can write I2C messages
+(master_xfer) or SMBus messages (smbus_xfer).
+
+Adapters:
+
+An Adapter effectively represents a bus – it is used to tie up a particular I2C/SMBus with an algorithm and bus number..
+It is represented by the ‘struct i2c_adapter‘ structure..
+
+If you imagine a system where there are many I2C buses – perhaps two controlled by a controller chip and one bit-banged – then you would expect to see 3 instances of an i2c_adapter and 2 instances of an i2c_algorithm...
+
+Client:
+A Client represents a chip (slave) on the I2C/SMBus such as a Touchscreen peripheral and is represented by a ‘struct i2c_client‘ structure
