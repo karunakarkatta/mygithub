@@ -17,7 +17,7 @@ Adapters:
 An Adapter effectively represents a bus – it is used to tie up a particular I2C/SMBus with an algorithm and bus number..
 It is represented by the ‘struct i2c_adapter‘ structure..
 
-If you imagine a system where there are many I2C buses – perhaps two controlled by a controller chip and one bit-banged – then you would expect to see 3 instances of an i2c_adapter and 2 instances of an i2c_algorithm...
+  If you imagine a system where there are many I2C buses – perhaps two controlled by a controller chip and one bit-banged – then you would expect to see 3 instances of an i2c_adapter and 2 instances of an i2c_algorithm...
 
 Client:
 A Client represents a chip (slave) on the I2C/SMBus such as a Touchscreen peripheral and is represented by a ‘struct i2c_client‘ structure
